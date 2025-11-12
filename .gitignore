@@ -1,0 +1,15 @@
+# .gitignore
+node_modules/
+.next/
+firebase-debug.log
+.firebase/
+*.log
+
+# Next.js
+.next/
+out/
+build/
+
+# Environment
+.env
+.env.local
