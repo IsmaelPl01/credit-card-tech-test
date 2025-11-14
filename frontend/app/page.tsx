@@ -8,8 +8,6 @@ import { useCards } from './context/CardContext';
 
 export default function HomePage() {
   const { cards } = useCards();
-  
-  // Mostrar solo las últimas 3 tarjetas
   const recentCards = cards.slice(0, 3);
 
   return (
@@ -20,17 +18,22 @@ export default function HomePage() {
           <p>Agrega y administra tus tarjetas de forma segura</p>
         </header>
 
-        {/* Formulario de agregar tarjeta */}
         <section className="form-section">
           <CreditCardForm />
         </section>
 
-        {/* Tarjetas recientes */}
+        <section className="all-cards-section">
+          <Link href="/cards" className="btn-view-all-cards">
+            Ver Tarjetas
+          </Link>
+        </section>
+
         {cards.length > 0 && (
           <section className="recent-section">
             <div className="recent-cards-container">
               <div className="recent-cards-header">
                 <h2>Tarjetas Recientes</h2>
+
                 {cards.length > 3 && (
                   <Link href="/cards" className="view-all-link">
                     Ver todas ({cards.length})
