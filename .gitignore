@@ -13,3 +13,5 @@ build/
 # Environment
 .env
 .env.local
+
+functions/lib/
