@@ -10,7 +10,6 @@ interface CardItemProps {
 }
 
 export default function CardItem({ card, showActions = false }: CardItemProps) {
-  // Función para enmascarar el número de tarjeta
   const maskCardNumber = (cardNumber: string): string => {
     if (cardNumber.length !== 16) return cardNumber;
     const first2 = cardNumber.slice(0, 2);
@@ -21,7 +20,7 @@ export default function CardItem({ card, showActions = false }: CardItemProps) {
   return (
     <div className="card-item">
       <div className="card-info">
-        <div className="card-number">
+        <div className="card-number-row">
           <span className="label">Tarjeta:</span>
           <span className="value">{maskCardNumber(card.cardNumber)}</span>
         </div>
@@ -36,13 +35,13 @@ export default function CardItem({ card, showActions = false }: CardItemProps) {
           </div>
         </div>
       </div>
-      
+
       <div className="card-actions">
         <span className="card-date">
-          {new Date(card.createdAt).toLocaleDateString('es-ES', {
-            day: '2-digit',
-            month: 'short',
-            year: 'numeric',
+          {new Date(card.createdAt).toLocaleDateString("es-ES", {
+            day: "2-digit",
+            month: "short",
+            year: "numeric",
           })}
         </span>
         {showActions && (
